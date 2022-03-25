@@ -47,11 +47,11 @@ const slides = [
 ];
 
 const IntroSlider = ({ navigation }) => {
-    const [showRealApp, setShowRealApp] = useState(false);
+   
 
     const onDone = () => {
-       // setShowRealApp(true);
-       navigation.navigate('Home')
+        // setShowRealApp(true);
+        navigation.navigate('Home')
     };
 
 
@@ -96,35 +96,19 @@ const IntroSlider = ({ navigation }) => {
     };
 
     return (
-        <>
-            {showRealApp ? (
-                <SafeAreaView style={styles.container}>
-                    <View style={styles.container}>
-                        <Text style={styles.titleStyle}>
-                            React Native App Intro Slider using AppIntroSlider
-                        </Text>
-                        <Text style={styles.paragraphStyle}>
-                            This will be your screen when you click Skip
-                            from any slide or Done button at last
-                        </Text>
-                        <Button
-                            title="Show Intro Slider again"
-                            onPress={() => setShowRealApp(false)}
-                        />
-                    </View>
-                </SafeAreaView>
-            ) : (
-                <AppIntroSlider
-                    data={slides}
-                    renderItem={RenderItem}
-                    onDone={onDone}
-                    renderDoneButton={RenderDoneButton}
-                    showNextButton={false}
-                    activeDotStyle={{ backgroundColor: COLORS.Blue }}
-                // renderNextButton={RenderNextButton}
-                />
-            )}
-        </>
+
+        (
+            <AppIntroSlider
+                data={slides}
+                renderItem={RenderItem}
+                onDone={onDone}
+                renderDoneButton={RenderDoneButton}
+                showNextButton={false}
+                activeDotStyle={{ backgroundColor: COLORS.Blue }}
+            // renderNextButton={RenderNextButton}
+            />
+        )
+
     );
 };
 
